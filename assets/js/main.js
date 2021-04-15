@@ -1,3 +1,23 @@
+$('.testimonial-carousel').owlCarousel({
+    loop:true,
+    margin:20,
+    nav:false,
+    dots:false,
+    autoplay:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        700:{
+            items:2
+        },
+        1000:{
+            items:3
+        }
+    }
+})
+
+
 $('.owl-carousel').owlCarousel({
     loop:true,
     margin:10,
@@ -8,11 +28,31 @@ $('.owl-carousel').owlCarousel({
         0:{
             items:1
         },
-        600:{
+        700:{
             items:2
         },
         1000:{
             items:3
         }
     }
-})
+});
+
+$(document).ready(function() {
+    $('.popup-gallery').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        tLoading: 'Loading image #%curr%...',
+        mainClass: 'mfp-img-mobile',
+        gallery: {
+            enabled: true,
+            navigateByImgClick: true,
+            preload: [0,1]
+        },
+        image: {
+            tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+            titleSrc: function(item) {
+                return item.el.attr('title');
+            }
+        }
+    });
+});
